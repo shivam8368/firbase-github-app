@@ -1,0 +1,20 @@
+*{
+  margin: 0 ;
+  padding: 0;
+}
+
+
+.inlineStyle{
+
+  width:'auto';
+  height: '500px';
+
+}
+
+.centered {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+}
