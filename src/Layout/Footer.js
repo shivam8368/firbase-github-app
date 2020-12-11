@@ -1,11 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Navbar, Nav} from 'react-bootstrap';
+import { Row, Col, Navbar, Nav} from 'react-bootstrap';
 import './Layout.css';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import CopyrightIcon from '@material-ui/icons/Copyright';
-import {Link} from "react-router-dom";
 
 const Footer = () => {
 
