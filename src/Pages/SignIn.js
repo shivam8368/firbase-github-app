@@ -2,7 +2,6 @@ import React, {useState, useContext } from 'react';
 import {
     Container,
     Form,
-    Button,
     FormGroup,
     Label,
     Col,
@@ -13,11 +12,16 @@ import {
     CardFooter,
     CardHeader,
 } from 'reactstrap';
+import {Button} from "@material-ui/core";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 import firebase from 'firebase/app';
 import { UserContext } from "../Context/UserContext";
 import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import '../Layout/Layout.css'
 
 const SignIn = () => {
 
@@ -40,7 +44,38 @@ const SignIn = () => {
             toast(error.message, {type: "error"})
         })
 
-    }
+	}
+	
+
+	const handleGoogleSignin = () => {
+		var  base_provider = new firebase.auth.GoogleAuthProvider();
+
+		firebase.auth().signInWithPopup(base_provider).then(function(result) {
+			console.log.apply(result)
+			context.setUser({email: result.user.email, uid:result.user.uid})
+			
+			}).catch(function(error) {
+				console.log(error)
+            	toast(error.message, {type: "error"})
+			
+});
+}
+
+
+	const handleFacebookSignin = () => {
+	var base_provider = new firebase.auth.FacebookAuthProvider();
+
+
+	firebase.auth().signInWithPopup(base_provider).then(function(result) {
+			console.log.apply(result)
+			context.setUser({email: result.user.email, uid:result.user.uid})
+			
+			}).catch(function(error) {
+			console.log(error)
+            toast(error.message, {type: "error"})
+});
+}
+
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -48,16 +83,16 @@ const SignIn = () => {
     }
 
     if (context.user?.uid) {
-        return <Redirect to= '/Jobs' />
+		console.log(context.user)
+        return <Redirect to= '/Home' />
     }
     return (
+		<div className="body-style sign-style">
 		<Container className='text-center'>
 			<Row>
 				<Col lg={6} className='offset-lg-3 mt-5'>
-					<Card>
-						<Form onSubmit={handleSubmit}>
-							<CardHeader className=''>SignIn here</CardHeader>
-							<CardBody>
+					<h2>SignIn Here</h2>
+						<Form onSubmit={handleSubmit} style= {{paddingTop: "2rem"}}>
 								<FormGroup row>
 									<Label for='email' sm={3}>
 										Email
@@ -88,17 +123,35 @@ const SignIn = () => {
 										/>
 									</Col>
 								</FormGroup>
-							</CardBody>
-							<CardFooter>
-								<Button type='submit' block color='primary'>
+								<Button type="submit" variant="outlined" color="primary" style= {{width: "32rem", marginLeft:"2rem"}}>
 									Sign In
 								</Button>
-							</CardFooter>
+
+								<Button onClick = {()=> {handleGoogleSignin()}} type="submit" variant="outlined" color="primary" style= {{width: "15rem", marginRight:"14rem", marginTop: "1rem"}}>
+									<FcGoogle style ={{marginRight: "10"}}/>
+									Sign In with Google
+
+								</Button>
+
+
+								<Button onClick = {() => {handleFacebookSignin()}} type="submit" variant="outlined" color="primary" style= {{width: "15rem", marginLeft:"18rem", marginTop: "-4rem"}}>
+									<FaFacebook style ={{marginRight: "10"}}/>
+									Sign In with Facebook
+
+								</Button>
+
+							<div style={{marginTop: "4rem"}}>
+								<h2>OR</h2>
+								<h4>Don't have an account...</h4>
+								<Button component={Link} to= "SignUp" type="submit" variant="outlined" color="primary" style= {{width: "32rem", marginLeft:"2rem"}}>
+									Sign Up Here
+								</Button>
+							</div>
 						</Form>
-					</Card>
 				</Col>
 			</Row>
 		</Container>
+		</div>
 	);
 
 

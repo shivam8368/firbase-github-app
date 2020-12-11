@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
-import { Parallax } from 'react-parallax';
+import '../Layout/Layout.css';
 
 import {
   Row,
@@ -16,10 +16,13 @@ import UserCard from "../Components/UserFile";
 import Repos from "../Components/Repos";
 import { UserContext } from "../Context/UserContext";
 import { toast } from "react-toastify";
-import Header from '../Layout/Header';
-import { Redirect } from "react-router-dom";
+import NavBar from "../Layout/NavBar"
+import { Link } from "react-router-dom";
+import GitHubIcon from '@material-ui/icons/GitHub';
+
 
 import '../App.css';
+import Body from "../Layout/Body";
 
 
 //parallex_image
@@ -38,25 +41,24 @@ const Home = () => {
         try {
             const {data} = await Axios.get(`https://api.github.com/users/${quary}`);
             setUser(data)
+            toast("Scroll Down to See Your Profile. " , {type: "success"})
 
         } catch (eror) {
             toast("Not able to locate the user", {type : "error"})
         }
     }
 
-if (user){
-     <Redirect to="/UserPage" />
-   }
 
    
     return (
-    <div fluid>
-      <Parallax bgImage = {parrlax_image} className = "inlineStyle" style={{height:550}} >
-        <Header/>
+    <div fluid className="body-style ">
+        <NavBar/>
 
-      <Container >
-        
-          <InputGroup className="centered">
+
+      <Container className= "centered" >
+        <GitHubIcon fontSize = 'large' style= {{marginLeft: "330", marginBottom: "40" , fontSize: "100"}}/>
+
+          <InputGroup style={{width: "50rem"}}>
             <Input
               type="text"
               value={quary}
@@ -66,16 +68,32 @@ if (user){
             />
             <InputGroupAddon addonType="append">
               <Button onClick={fetchDetails} color="primary">Fetch User</Button>
-            </InputGroupAddon>
+            </InputGroupAddon> 
           </InputGroup>
-         
-      </Container>
-      </Parallax>
 
-      <Row className = "mt-3">
+         
+          <div className = "button-style">
+          {context.user?.uid ? (
+            
+            <Button tag={Link} to="Jobs" > Click to see jobs </Button>
+            
+          ) :(
+            
+            <Button tag={Link} to="SignIn" > sign in to see jobs </Button>
+          ) }
+          
+          </div>
+
+           </Container>
+          
+           
+            <Row className = "mtb-1 " style={{justifyContent: "center"}}>
         <Col md="4" className= "ml-6">{user ? <UserCard user={user}/> : null}</Col> 
         <Col md="6" className = "mt-3 mb-3 ml-6">{user ? <Repos repos_url={user.repos_url}/> :null}</Col>
-      </Row>
+           </Row>
+      
+     
+
     </div>
   );
 }

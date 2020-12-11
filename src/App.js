@@ -30,6 +30,7 @@ import Header from './Layout/Header';
 import firebaseConfig from "./config/FirebaseConfig";
 import JobPage from './Pages/JobPage';
 import UserPage from './Pages/UserPage';
+import Blog from './Pages/Blog';
 
 
 //init firebase
@@ -49,11 +50,13 @@ const App = () => {
       <ToastContainer />
       <UserContext.Provider value ={{user , setUser}}>
         <Switch>
-          <Route exact path ="/" component ={Home} />
+          <Route exact path ="/" component ={Header} />
+          <Route exact path ="/Home" component ={Home} />
           <Route exact path ="/SignUp" component ={SignUp} />
           <Route exact path ="/SignIn" component ={SignIn} />
           <Route exact path ="/Jobs" component ={JobPage} />
           <Route exact path ="/UserPage" component ={UserPage} />
+          <Route exact path ="/Blog" component ={Blog} />
           <Route exact path ="*" component ={PageNotFound} />
         </Switch>
       </UserContext.Provider>

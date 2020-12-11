@@ -1,65 +1,43 @@
-import React, { useState, useContext} from 'react';
+import React from 'react'
+import header_img from "../Media/header.jpg";
+import { Parallax, Background } from 'react-parallax';
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    NavLink,
-    Nav,
-    NavItem,
-    NavbarText
-} from 'reactstrap';
+  Row,
+  Container,
+  Col,
+  Input,
+  Button,
+} from "reactstrap";
+import NavBar from './NavBar';
+import Body from './Body';
+import Footer from './Footer';
 
-import { Link } from "react-router-dom" ;
 
-import { UserContext } from "../Context/UserContext";
+
 
 
 const Header = () => {
+    return (
+        <div>
+         <div className = "parallex-div">
+      <Parallax bgImage={header_img} className = "inlineStyle" style={{height:700}} >
+          
+        <NavBar/>
 
-    const context = useContext(UserContext);
+        <Container className=" header-style" >
+            <h3>Hey There... </h3>
+            <h1>Welcome !</h1>
+            <h4>Hope you will find something amazing here.. </h4>
+        </Container>
+        </Parallax>
+        </div>
+        <Body/>
+        <Footer/>
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggle = () => setIsOpen(!isOpen);
-
-    return(
-        <Navbar color="rgba(52, 52, 52, 0.8)" light expand="md">
-            <NavbarBrand>
-                <Link to="/" className="text-white">
-                    LCO git-fire app
-                </Link>
-            </NavbarBrand>
-    <NavbarText className= "text-white">{
-        context.user?.email  ? context.user.email : "" 
-    }</NavbarText>
-            <NavbarToggler onClick={toggle}/>
-            <Collapse isOpen={isOpen} navbar>
-                <Nav className="ml-auto" navbar>
-                    {
-                        context.user ? ( 
-                            <NavItem>
-                                <NavLink tag={Link} onClick={() => (context.setUser(null))} className="text-white">LogOut</NavLink>
-                            </NavItem>
-                           
-                        ) : (
-                             <>
-                             <NavItem>
-                                <NavLink tag={Link} to="SignUp"  className="text-white">SignUp</NavLink>
-                             </NavItem>
-                             <NavItem>
-                                <NavLink tag={Link} to= "SignIn" className="text-white">SignIn</NavLink>
-                             </NavItem>
-                            </>)
-                    }
-                   
-                    
-                </Nav>
-            </Collapse>
-        </Navbar>
-
+    
+        </div>
     )
+};
 
 
-}
-export default Header ;
+export default  Header;

@@ -18,6 +18,7 @@ import firebase from "firebase/app";
 import {UserContext} from "../Context/UserContext";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import '../Layout/Layout.css';
 
 
 
@@ -54,13 +55,12 @@ const SignUp = () => {
        return <Redirect to = '/' />
    }
    return (
+	   <div className="body-style sign-style">
 		<Container className='text-center'>
 			<Row>
 				<Col lg={6} className='offset-lg-3 mt-5'>
-					<Card>
-						<Form onSubmit={handleSubmit}>
-							<CardHeader className=''>SignUp here</CardHeader>
-							<CardBody>
+					<h2>SignUp Here</h2>
+						<Form onSubmit={handleSubmit} style= {{paddingTop: "2rem"}}>
 								<FormGroup row>
 									<Label for='email' sm={3}>
 										Email
@@ -91,17 +91,14 @@ const SignUp = () => {
 										/>
 									</Col>
 								</FormGroup>
-							</CardBody>
-							<CardFooter>
-								<Button type='submit' block color='primary'>
-									Sign In
+								<Button type="submit" variant="outlined" color="primary" style= {{width: "32rem", marginLeft:"2rem"}}>
+									Sign Up
 								</Button>
-							</CardFooter>
 						</Form>
-					</Card>
 				</Col>
 			</Row>
 		</Container>
+		</div>
 	);
 
 

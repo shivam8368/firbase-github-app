@@ -6,6 +6,8 @@ import JobsPagination from '../Components/JobPagination';
 import SearchForm from '../Components/SearchForm';
 import { UserContext } from "../Context/UserContext";
 import { Redirect } from "react-router-dom";
+import '../Layout/Layout.css'
+import NavBar from '../Layout/NavBar';
 
 
 
@@ -31,7 +33,9 @@ const JobPage = () => {
 
 
   return (
-   <Container className = "my-4">
+    <div className="body-style job-style">
+      <NavBar />
+   <Container className = "my-4 ">
      <h1 className = "mb-4">Github Jobs</h1>
      <SearchForm params = {params} onParamChange = {handleParamChange} />
      <JobsPagination page = {page} setPage = {setPage} hasNextPage= {hasNextPage} />
@@ -42,6 +46,7 @@ const JobPage = () => {
      })}
      <JobsPagination page = {page} setPage = {setPage} hasNextPage= {hasNextPage} />
    </Container>
+   </div>
   );
 }
 
