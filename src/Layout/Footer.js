@@ -13,7 +13,7 @@ const Footer = () => {
 
             <Row>
                 <Col md={4} xs={12} >
-                     <Navbar.Brand href="#home" className = "brand-style">Git Explore</Navbar.Brand>
+                     <Navbar.Brand href="#home" className = "brand-style">Git Browse</Navbar.Brand>
                 </Col>
                 <Col md={4} xs={12} >
                      <p className="text-center" style = {{marginBottom : -2 }}>Contact Us at:</p>

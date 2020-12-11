@@ -27,7 +27,7 @@ const NavBar = () => {
         <Navbar style = {{backgroundColor: "rgb(0,111,138)"}} color="rgb(0,111,138)" light fixed="top" expand="md">
             <NavbarBrand>
                 <Link to="/" className="text-white">
-                    Git-Explore
+                    Git-Browse
                 </Link>
             </NavbarBrand>
     <NavbarText className= "text-white">{
