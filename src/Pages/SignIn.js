@@ -7,10 +7,7 @@ import {
     Col,
     Input,
     Row,
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
+  
 } from 'reactstrap';
 import {Button} from "@material-ui/core";
 import { FcGoogle } from "react-icons/fc";

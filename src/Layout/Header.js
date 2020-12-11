@@ -1,13 +1,7 @@
 import React from 'react'
 import header_img from "../Media/header.jpg";
-import { Parallax, Background } from 'react-parallax';
-import {
-  Row,
-  Container,
-  Col,
-  Input,
-  Button,
-} from "reactstrap";
+import { Parallax } from 'react-parallax';
+import { Container } from "reactstrap";
 import NavBar from './NavBar';
 import Body from './Body';
 import Footer from './Footer';

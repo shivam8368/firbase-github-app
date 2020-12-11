@@ -1,11 +1,10 @@
 import React from 'react';
-import {Card, Col, Row, Container} from 'react-bootstrap';
+import {Card, Col, Row} from 'react-bootstrap';
 import { Button } from '@material-ui/core';
 import './Layout.css';
 import body_search from "../Media/body_search.png";
 import body_blog from '../Media/body_blog.png';
 import { Link } from "react-router-dom" ;
-import Blog from "../Pages/Blog";
 
 
 

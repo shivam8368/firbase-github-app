@@ -8,10 +8,7 @@ import {
     Col,
     Input,
     Row,
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader
+  
 } from 'reactstrap';
 
 import firebase from "firebase/app";

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 // react-router
-import {BrowserRouter as Router, Switch ,Route, Link} from 'react-router-dom';
-import { toast } from 'react-toastify';
+import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom';
 
 // toast
 
@@ -23,7 +21,6 @@ import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import PageNotFound from './Pages/PageNotFound';
 import { UserContext } from './Context/UserContext';
-import Footer from './Layout/Footer';
 import Header from './Layout/Header';
 
 //firebase

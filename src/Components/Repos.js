@@ -12,7 +12,7 @@ const Repos = ({repos_url}) => {
     }
 
     useEffect(() => {
-        fetchRepos(); 
+        fetchRepos() 
     }, [repos_url] );
 
 

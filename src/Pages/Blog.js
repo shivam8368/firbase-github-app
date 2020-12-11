@@ -1,13 +1,7 @@
 import React from 'react'
 import under_construction from "../Media/under_construction.png";
 import { Parallax, Background } from 'react-parallax';
-import {
-  Row,
-  Container,
-  Col,
-  Input,
-  Button,
-} from "reactstrap";
+import { Container } from "reactstrap";
 import NavBar from '../Layout/NavBar';
 import Footer from '../Layout/Footer';
 

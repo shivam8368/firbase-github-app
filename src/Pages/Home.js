@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Axios from "axios";
 import '../Layout/Layout.css';
 
@@ -22,11 +22,9 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 
 import '../App.css';
-import Body from "../Layout/Body";
 
 
-//parallex_image
-const parrlax_image = "https://images.pexels.com/photos/1125272/pexels-photo-1125272.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+
 
 
 const Home = () => {
